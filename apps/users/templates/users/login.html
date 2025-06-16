@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="main">
+	<div class="container">
+		<section class="wrapper">
+			<div class="heading">
+				<h1 class="text text-large">Sign In</h1>
+				<p class="text text-normal">New user? <span><a href="/register" class="text text-links">Create an account</a></span>
+				</p>
+			</div>
+
+            <div class="backend-error" id="backendError"></div>
+            <div class="success-message" id="successMessage"></div>
+
+			<form name="signin" class="form" id="signinForm">
+                {% csrf_token %}
+				<div class="input-control">
+					<label for="email" class="input-label" hidden>Email Address</label>
+					<input type="email" name="email" id="email" class="input-field" placeholder="Email Address" autocomplete="email">
+                    <div class="error-message" id="emailError"></div>
+				</div>
+				<div class="input-control">
+					<label for="password" class="input-label" hidden>Password</label>
+					<input type="password" name="password" id="password" class="input-field" placeholder="Password" autocomplete="current-password">
+                    <div class="error-message" id="passwordError"></div>
+				</div>
+				<div class="input-control">
+					<a href="#" class="text text-links" id="forgotPassword">Forgot Password</a>
+					<input type="submit" name="submit" class="input-submit" value="Sign In" id="submitBtn">
+				</div>
+			</form>
+
+            <div class="loading" id="loading">Signing you in...</div>
+		</section>
+	</div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Authentication Module{% endblock %}</title>
+
+    <!-- Global styles -->
+    <link href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link
+    rel="stylesheet"
+    href="{% static 'vendors/fontawesome/css/all.min.css' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <!-- Page-specific CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    {% include "partials/header.html" %}
+    <div class="">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% include "partials/footer.html" %}
+
+    <!-- Global JS -->
+    <script src="{% static 'vendors/jqueryJS/jquery.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Page-specific JS -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

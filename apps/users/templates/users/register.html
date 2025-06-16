@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Register{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="main">
+	<div class="container">
+		<section class="wrapper">
+			<div class="heading">
+				<h1 class="text text-large">Sign Up</h1>
+				<p class="text text-normal">Already have account? <span><a href="/login" class="text text-links">Login here!</a></span>
+				</p>
+			</div>
+
+			<div class="backend-error" id="backendError"></div>
+            <div class="success-message" id="successMessage"></div>
+
+			<form name="register" class="form" id="registerForm">
+                <div class="input-control">
+					<label for="first_name" class="input-label" hidden>First Name</label>
+					<input type="text" name="first_name" id="first_name" class="input-field" placeholder="First Name" autocomplete="given-name">
+					<div class="error-message" id="firstNameError"></div>
+				</div>
+				<div class="input-control">
+					<label for="last_name" class="input-label" hidden>Last Name</label>
+					<input type="text" name="last_name" id="last_name" class="input-field" placeholder="Last Name" autocomplete="family-name">
+					<div class="error-message" id="lastNameError"></div>
+				</div>
+                <div class="input-control">
+					<label for="mobile" class="input-label" hidden>Mobile No.</label>
+					<input type="tel" name="mobile" id="mobile" class="input-field" placeholder="Mobile No." autocomplete="tel">
+					<div class="error-message" id="mobileError"></div>
+				</div>
+				<div class="input-control">
+					<label for="email" class="input-label" hidden>Email Address</label>
+					<input type="email" name="email" id="email" class="input-field" placeholder="Email Address" autocomplete="email">
+					<div class="error-message" id="emailError"></div>
+				</div>
+				<div class="input-control">
+					<label for="password" class="input-label" hidden>Password</label>
+					<input type="password" name="password" id="password" class="input-field" placeholder="Password" autocomplete="new-password">
+					<div class="error-message" id="passwordError"></div>
+					<div class="password-strength" id="passwordStrength"></div>
+				</div>
+				<div class="input-control">
+					<input type="submit" name="submit" class="input-submit" value="Register" id="submitBtn">
+				</div>
+			</form>
+
+			<div class="loading" id="loading">Creating your account...</div>
+		</section>
+	</div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock %}
